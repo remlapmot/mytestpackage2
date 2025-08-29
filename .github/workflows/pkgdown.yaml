@@ -37,10 +37,10 @@ jobs:
           needs: website
 
       - name: Build site
-        run: |
-          print(systemfonts::font_info(c("symbol"))[, 2:9])
-          systemfonts::register_variant("symbol", "Liberation Sans")
-          print(systemfonts::font_info(c("symbol"))[, 2:9])
+        run: >
+          print(systemfonts::font_info(c("symbol"))[, 2:9]);
+          systemfonts::register_variant("symbol", "Liberation Sans");
+          print(systemfonts::font_info(c("symbol"))[, 2:9]);
           pkgdown::build_site_github_pages(new_process = FALSE, install = FALSE)
         shell: Rscript {0}
 
