@@ -2,4 +2,5 @@ url: https://remlapmot.github.io/mytestpackage2/
 template:
   bootstrap: 5
 figures:
-  fig.width: 15
+  dev: grDevices::png
+  fig.width: 10

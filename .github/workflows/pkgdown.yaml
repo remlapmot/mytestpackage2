@@ -33,15 +33,11 @@ jobs:
 
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
-          extra-packages: any::pkgdown, local::., any::systemfonts
+          extra-packages: any::pkgdown, local::.
           needs: website
 
       - name: Build site
-        run: >
-          print(systemfonts::font_info(c("symbol"))[, 2:9]);
-          systemfonts::register_variant("symbol", "Liberation Sans");
-          print(systemfonts::font_info(c("symbol"))[, 2:9]);
-          pkgdown::build_site_github_pages(new_process = FALSE, install = FALSE)
+        run: pkgdown::build_site_github_pages(new_process = FALSE, install = FALSE)
         shell: Rscript {0}
 
       - name: Deploy to GitHub pages 🚀
